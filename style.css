@@ -1,0 +1,101 @@
+body {
+    font-family: sans-serif;
+    background-color: #f2f5f3;
+    margin: 0;
+    padding: 20px;
+}
+
+.app {
+    max-width: 440px;
+    margin: 30px auto;
+    padding: 24px;
+    background-color: white;
+    border-radius: 16px;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+.field{
+    margin-bottom: 20px;
+}
+
+.field label{
+    display : block;
+    margin-bottom : 8px;
+}
+
+.field input{
+    width : 100%;
+    box-sizing : border-box;
+    padding : 12px;
+    font-size : 16px;
+    border : 1px solid #ccd8d0;
+    border-radius: 8px;
+}
+
+.actions{
+    display : flex;
+    gap : 12px;
+    margin-bottom:20px;
+}
+
+.actions button{
+    padding : 12px 20px;
+    font-size : 16px;
+    border-radius : 8px;
+    cursor : pointer;
+}
+
+.calculate-btn{
+    flex : 1;
+    background-color: #296347;
+    color : white;
+    border : 1px solid #296347;
+}
+
+.clear-btn{
+    background-color: white;
+    color : #296347;
+    border : 1px solid #ccd8d0;
+}
+
+#result {
+    padding : 20px;
+    background-color:#edf5ef ;
+    border-radius: 12px;
+    color : #243c32;
+    line-height: 1.8;
+}
+#result.error {
+    background-color : #fff0f0;
+    color : #b42318;
+}
+.amount{
+    font-size:32px;
+    font-weight: bold;
+}
+
+@media(max-width:500px){
+    body{
+        padding : 12px;
+    }
+
+    .app{
+        margin : 12px auto;
+        padding : 20px;
+    }
+
+    h1{
+        font-size:24px
+    }
+}
+
+.note{
+    margin-top : 12px;
+    margin-bottom : 0;
+    font-size : 14px;
+    color : #617069;
+    line-height: 1.6;
+}
