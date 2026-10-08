@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>割り勘計算アプリ</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <div class="app">
+        <h1>割り勘計算アプリ</h1>
+        <p>お会計の金額と人数から、1人分の金額を計算します。</p>
+
+        <div class="field">
+            <!-- labelは入力欄の説明。forを入力欄のidに合わせる -->
+            <label for="money">お会計金額（円）：</label>
+            <!-- 数値の入力欄を作成し、idで要素を識別する -->
+            <input type="number" id="money">
+        </div>
+
+        <div class="field">
+            <label for="people">人数（人）：</label>
+            <input type="number" id="people">
+        </div>
+        <div class="actions">
+        <button class="calculate-btn" onclick="calculate();">計算</button>
+        <button class="clear-btn" onclick="clearInput();">クリア</button>
+        </div>
+
+        <div id="result">まだ計算していません</div>
+        <p class="note">1人分の金額は、1円未満を切り上げます。</p>
+    </div>
+        <script>
+            function calculate(){
+                let moneyInput = document.querySelector("#money");
+                let peopleInput = document.querySelector("#people")
+                let money = Number(moneyInput.value);
+                let people = Number(peopleInput.value);
+                let result = document.querySelector("#result");
+                result.className = "";
+
+                if (money<=0){
+                    result.className = "error";
+                    result.innerHTML = "金額は0より大きい数値を入力してください";
+                    return;
+                }
+                if (!Number.isInteger(money)) {
+                    result.className = "error";
+                    result.innerHTML = "金額は整数（円単位）で入力してください";
+                    return;
+                }
+
+                if (people<=0){
+                    result.className = "error";
+                    result.innerHTML = "人数は1人以上で入力してください"
+                    return;
+                }
+                if (!Number.isInteger(people)) {
+                    result.className = "error";
+                    result.innerHTML = "人数は整数で入力してください";
+                    return;
+                }
+                let amountPerPerson = Math.ceil(money/people);
+                let collectedTotal = amountPerPerson * people ;
+                let extra = collectedTotal - money ; 
+                result.innerHTML=
+                "1人あたりの金額<br>" + 
+                "<span class='amount'>"+ amountPerPerson + " 円</span><br>"+
+                "集める金額の合計："+ collectedTotal +" 円<br>"+
+                "お会計との差額："+ extra +" 円";
+            }
+
+            function clearInput(){
+                let moneyInput = document.querySelector("#money");
+                let peopleInput = document.querySelector("#people");
+                let result = document.querySelector("#result");
+
+                moneyInput.value = "";
+                peopleInput.value = "";
+                result.className = "";
+                result.innerHTML = "まだ計算していません";
+            }
+        </script>
+    </body>
+</html>
