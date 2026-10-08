@@ -32,11 +32,11 @@
     </div>
         <script>
             function calculate(){
-                let moneyInput = document.querySelector("#money");
-                let peopleInput = document.querySelector("#people")
-                let money = Number(moneyInput.value);
-                let people = Number(peopleInput.value);
-                let result = document.querySelector("#result");
+                const moneyInput = document.querySelector("#money");
+                const peopleInput = document.querySelector("#people")
+                const money = Number(moneyInput.value);
+                const people = Number(peopleInput.value);
+                const result = document.querySelector("#result");
                 result.className = "";
 
                 if (money<=0){
@@ -60,9 +60,9 @@
                     result.innerHTML = "人数は整数で入力してください";
                     return;
                 }
-                let amountPerPerson = Math.ceil(money/people);
-                let collectedTotal = amountPerPerson * people ;
-                let extra = collectedTotal - money ; 
+                const amountPerPerson = Math.ceil(money/people);
+                const collectedTotal = amountPerPerson * people ;
+                const extra = collectedTotal - money ; 
                 result.innerHTML=
                 "1人あたりの金額<br>" + 
                 "<span class='amount'>"+ amountPerPerson + " 円</span><br>"+
@@ -71,9 +71,9 @@
             }
 
             function clearInput(){
-                let moneyInput = document.querySelector("#money");
-                let peopleInput = document.querySelector("#people");
-                let result = document.querySelector("#result");
+                const moneyInput = document.querySelector("#money");
+                const peopleInput = document.querySelector("#people");
+                const result = document.querySelector("#result");
 
                 moneyInput.value = "";
                 peopleInput.value = "";
